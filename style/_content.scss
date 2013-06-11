@@ -1,0 +1,117 @@
+.e-content
+{
+    > section:not(.main)
+    {
+        color      : $non-active-secondary-text-colour;
+        transition : color 0.2s ease-in;
+
+        &:hover
+        {
+            color : $secondary-text-colour;
+        }
+    }
+
+    section
+    {
+        color       : $primary-text-colour;
+        line-height : $line-height / 1em;
+
+        + section
+        {
+            margin-top : 2 * $line-height;
+        }
+
+        .strophe,
+        p,
+        ul,
+        ol
+        {
+            margin : $line-height 0;
+
+            &:fist-child
+            {
+                margin-top : 0;
+            }
+        }
+
+        .strophe
+        {
+            p
+            {
+                $indent             : $vertical-content-padding * 2/3;
+                margin              : 0;
+                padding             : 0 0 0 $indent;
+                text-indent         : -1 * $indent;
+                // graphical marker for first wrapped line
+                $marker-size        : $line-height * 2/3; // square
+                background          : url(image/wrapped-line.png) no-repeat scroll;
+                background-position : ($indent - $marker-size) / 2 ($line-height * 3 - $marker-size) / 2;
+                background-size     : $marker-size;
+            }
+        }
+
+
+        ul,
+        ol,
+        li
+        {
+            margin  : 0;
+            padding : 0;
+
+        }
+
+        p + ul,
+        p + ol
+        {
+            margin-top : -1 * $line-height; // no space
+        }
+
+        ul + ol,
+        ol + ul
+        {
+            margin-top : $line-height;
+        }
+
+        blockquote
+        {
+            background-color : #eee;
+            color            : #222;
+            $a      : $line-height / 2;
+            $b      : $vertical-content-padding;
+            margin  : -1 * $a -1 * $b;
+            padding : $a $b;
+
+            + blockquote
+            {
+                margin-top : $line-height; // ?
+            }
+
+            p
+            {
+                &:first-of-type
+                {
+                    margin-top : 0;
+                }
+
+                &:last-of-type
+                {
+                    margin-bottom : 0;
+                }
+            }
+
+            cite
+            {
+                color : #444;
+
+                &::before
+                {
+                    margin-left : $vertical-content-padding;
+                    content     : '— '; // em dash
+                }
+            }
+        }
+
+    }
+
+    @import "emot";
+}

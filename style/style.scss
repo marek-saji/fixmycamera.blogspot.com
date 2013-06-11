@@ -1,0 +1,45 @@
+/**
+ * Fix her camera.
+ * first version: http://dabblet.com/gist/73505b9e9b3fc14cfa93
+ */
+
+// keep in sync with @media in _entry
+$photo-px-width : 621px;
+
+$line-height : 1.5em;
+// should have enough space for hanging "999. "
+$vertical-content-padding : 3em;
+
+$primary-text-colour              : #333;
+$secondary-text-colour            : lighten($primary-text-colour, 15%);
+// used only on non-touch devices
+$non-active-secondary-text-colour : lighten($secondary-text-colour, 15%);
+
+// a good start
+html
+{
+    font-size      : 12pt;
+    font-family    : "PT Sans", "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+    text-rendering : optimizeLegibility;
+}
+
+html,
+body
+{
+    margin  : 0;
+    padding : 0;
+}
+
+
+::selection
+{
+    background  : #fe57a1;
+    color       : #fff;
+    text-shadow : none;
+}
+
+@import "entry";
+
+@import "content";
+
+

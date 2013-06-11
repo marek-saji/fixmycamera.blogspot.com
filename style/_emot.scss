@@ -1,0 +1,44 @@
+.e-content section
+{
+    code.emot,
+    code.heart
+    {
+        display     : inline-block;
+        font-family : inherit;
+        position    : relative;
+        height      : 2/3 * $line-height;
+
+        transition : transform 0.6s ease-in, color 0.6s ease-in;
+        animation-iteration-count : infinite;
+        animation-duration        : 1s;
+    }
+
+    &:hover
+    {
+        code.heart
+        {
+            color : #722;
+        }
+
+        code.emot
+        {
+            transform : rotate(90deg) translateX(0.5ex) translateY(-0.75ex);
+
+            &:not(.heart)
+            {
+                color : #222;
+            }
+
+            &.reverse
+            {
+                transform : rotate(-90deg) translateX(-0.5ex) translateY(-0.75ex);
+            }
+
+            &.tilt
+            {
+                transform : rotate(15deg);
+            }
+        }
+    }
+}
+
